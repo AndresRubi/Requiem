@@ -23,21 +23,26 @@ class MainCharacter
         void Draw();
         void Update();
 
-        int vida, ataque,experiencia,nivel;
+
+        int GetNivel(){return nivel;}
         int GetVida(){return vida;}
         int GetAtaque(){return ataque;}
         bool GetEstado(){return VivoMuerto;}
 
-        int SetVida(int ataqueEnemigo);
-        int SetAtaque(int nivel);
+        void SubirNivel(int ExperienciaEnemiga);
+        void SetVida(int ataqueEnemigo);
+        void SetEstatus();
+        void SetVidaNivel(int porNivel);
+        void SetAtaqueNivel(int porNivel);
         bool VivoMuerto;
 
     protected:
     private:
-
+        int vida, ataque,experiencia,nivel;
         CEnviroment *Enviroment;
 //        Enemigos *Contra_Enemigos;
 //        Enemigos* CEnemigos;
+        void UpdateStats();
         void UpdateAnimation();
         void UpdateControls();
 

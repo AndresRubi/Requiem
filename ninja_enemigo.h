@@ -3,7 +3,6 @@
 #include "enemigos.h"
 
 class Ninja_Enemigo : public Enemigos
-
 {
     public:
         Ninja_Enemigo(int x,int y,float  *CameraX, float *CameraY,SDL_Setup *passed_SDL_Setup, string direcion_enemigo);
@@ -20,9 +19,9 @@ class Ninja_Enemigo : public Enemigos
 
 
         int vidaEnemy,ataqueEnemy,experienciaEnemy;
-        int SetVidaEnemy(int ataquePersonaje);
-        int SetAtaqueEnemy();
-        int SetExperiencia();
+        void SetVidaEnemy(int ataquePersonaje);
+        void SetAtaqueEnemy();
+        void SetExperiencia();
 
         bool enemigoVivoMuerto;
         bool EnemigoEliminado(){return enemigoVivoMuerto;}
@@ -32,13 +31,12 @@ class Ninja_Enemigo : public Enemigos
 
 
 
-
     protected:
     private:
+        int x,y;
         string tipoEnemigo;
         string getID(){return tipoEnemigo;}
         CSprite* GetEnemy() {return enemy;}
-        int x,y;
         SDL_Setup* csdl_setup;
         CSprite *enemy;
         float *CameraX;

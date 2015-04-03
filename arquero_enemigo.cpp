@@ -12,8 +12,10 @@ Arquero_Enemigo::Arquero_Enemigo(int x,int y,float  *passed_CameraX, float *pass
     csdl_setup = passed_SDL_Setup;
 
     enemy= new CSprite(csdl_setup->GetRenderer(),"data/enemigos/ranger_f.png",x,y,32,36,CameraX,CameraY,CCollisionRectangle(0,0,28,36));
-//    player = new CSprite(csdl_setup->GetRenderer(),"data/players/healer_m.png",96,144,32,36,CameraX,CameraY,CCollisionRectangle(80,126,28,36));
+
     enemy->SetUpAnimation(3,4);
+
+
     tipoEnemigo="archer";
     Follow =false;
     timeCheck = SDL_GetTicks();
@@ -27,35 +29,36 @@ Arquero_Enemigo::Arquero_Enemigo(int x,int y,float  *passed_CameraX, float *pass
     enemigoVivoMuerto=false;
     vidaEnemy = 10;
     ataqueEnemy =2;
-    experienciaEnemy=10;
+    experienciaEnemy=2;
 
 }
 
 Arquero_Enemigo::~Arquero_Enemigo()
 {
     //dtor
+    delete enemy;
 }
 
 ///
-int Arquero_Enemigo::SetVidaEnemy(int ataquePersonaje)
+void Arquero_Enemigo::SetVidaEnemy(int ataquePersonaje)
 {
     vidaEnemy-=ataquePersonaje;
     cout<<vidaEnemy<<endl;
     if(vidaEnemy<=0)
     {
-        enemigoVivoMuerto=false;
+        enemigoVivoMuerto=true;
     }
 
 }
 
-int Arquero_Enemigo::SetAtaqueEnemy()
+void Arquero_Enemigo::SetAtaqueEnemy()
 {
     ataqueEnemy=2;
 }
 
-int Arquero_Enemigo::SetExperiencia()
+void Arquero_Enemigo::SetExperiencia()
 {
-    ataqueEnemy=2;
+    experienciaEnemy=2;
 }
 ///
 
@@ -72,7 +75,7 @@ int Arquero_Enemigo::GetY()
 
 void Arquero_Enemigo::Draw()
 {
-    enemy->Draw();
+        enemy->Draw();
 }
 
 void Arquero_Enemigo::UpdateEnemyMovement()
@@ -142,7 +145,11 @@ void Arquero_Enemigo::UpdateEnemyAnimation()
 
 void Arquero_Enemigo::Update()
 {
-    UpdateEnemyAnimation();
-    UpdateEnemyMovement();
+    if(!enemigoVivoMuerto)
+    {
+        UpdateEnemyAnimation();
+        UpdateEnemyMovement();
+    }
+
 }
 

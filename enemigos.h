@@ -36,9 +36,9 @@ class Enemigos
 
         int vida,ataque,experiencia;
 
-        virtual int SetVidaEnemy(int ataquePersonaje)=0;
-        virtual int SetAtaqueEnemy()=0;
-        virtual int SetExperiencia()=0;
+        virtual void SetVidaEnemy(int ataquePersonaje)=0;
+        virtual void SetAtaqueEnemy()=0;
+        virtual void SetExperiencia()=0;
 
 
         bool enemigoVivoMuerto;

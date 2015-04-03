@@ -17,6 +17,7 @@ Enemigos::Enemigos(int x,int y,float  *passed_CameraX, float *passed_CameraY, SD
 Enemigos::~Enemigos()
 {
     //dtor
+    delete enemy;
 
 }
 

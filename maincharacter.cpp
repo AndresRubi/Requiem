@@ -22,10 +22,13 @@ MainCharacter::MainCharacter(SDL_Setup* passed_SDL_Setup, int *passed_MouseX, in
     distance = 0;
     stopAnimation = false;
     VivoMuerto=false;
-    vida=50;
+
+    vida=0;
     nivel=1;
-    ataque = 5;
+    ataque = 0;
     experiencia = 0;
+    SetEstatus();
+
 }
 
 MainCharacter::~MainCharacter()
@@ -34,17 +37,88 @@ MainCharacter::~MainCharacter()
     delete player;
 }
 
+void MainCharacter::SetVidaNivel(int porNivel)
+{
+    vida=porNivel;
+}
+void MainCharacter::SetAtaqueNivel(int porNivel)
+{
+    ataque=porNivel;
+}
+
+void MainCharacter::SubirNivel(int ExperienciaEnemiga)
+{
+    experiencia+=ExperienciaEnemiga;
+    if(experiencia > 4 )
+    {
+        nivel=2;
+    }
+    if(16 < experiencia)
+    {
+        nivel=3;
+    }
+   if(80 < experiencia)
+    {
+        nivel=4;
+    }
+    if(116 < experiencia)
+    {
+        nivel=5;
+    }
+    if(156 < experiencia)
+    {
+        nivel=6;
+    }
+}
 void MainCharacter::Draw()
 {
     player->DrawSteady();
 }
 
-int MainCharacter::SetAtaque(int nivel)
+void MainCharacter::SetEstatus()
 {
-    ataque=1;
+    int passedNivel=nivel;
+    switch(passedNivel)
+    {
+        case 1:
+        {
+            SetVidaNivel(10);
+            SetAtaqueNivel(2);
+            break;
+        }
+        case 2:
+        {
+            SetVidaNivel(20);
+            SetAtaqueNivel(6);
+            break;
+        }
+
+        case 3:
+        {
+            SetVidaNivel(30);
+            SetAtaqueNivel(10);
+            break;
+        }
+
+        case 4:
+        {
+            SetVidaNivel(40);
+            SetAtaqueNivel(14);
+            break;
+        }
+
+        case 5:
+        {
+            SetVidaNivel(50);
+            SetAtaqueNivel(20);
+            break;
+        }
+
+
+    }
 }
 
-int MainCharacter::SetVida(int ataqueEnemigo)
+void MainCharacter::SetVida(int ataqueEnemigo)
 {
     vida-=ataqueEnemigo;
 }
@@ -156,7 +230,7 @@ int check = timeCheck + 10;
                 else
                     stopAnimation=false;
 
-                if(distance > 15 && Follow)
+                if(distance > 15)
                 {
                     bool colliding = false;
                     for(int i = 0 ; i<Enviroment->GetTrees().size(); i++)
@@ -190,31 +264,47 @@ int check = timeCheck + 10;
                         }
                     }
 
-                    ///prueba colision con enemigos
+                    ///prueba colision con enemigos modoAGRESIVO
                     for(int x=0 ; x< Enviroment->GetEnemigos().size(); x++)
                     {
                         if(player->isColliding(Enviroment->GetEnemigos()[x]->GetEnemy()->GetCollisionRect()))
                         {
                             if(*CameraX > Follow_Point_X)
                             {
-                                *CameraX = *CameraX +5;
+                                *CameraX = *CameraX +10;
                             }
                             if(*CameraX < Follow_Point_X)
                             {
-                                *CameraX = *CameraX - 5;
+                                *CameraX = *CameraX - 10;
                             }
 
                             if(*CameraY > Follow_Point_Y)
                             {
-                                *CameraY = *CameraY +5;
+                                *CameraY = *CameraY +10;
                             }
                             if(*CameraY < Follow_Point_Y)
                             {
-                                *CameraY = *CameraY - 5;
+                                *CameraY = *CameraY - 10;
                             }
 
+                            if((Enviroment->GetEnemigos()[x]->GetVidaEnemy() - GetAtaque()) < GetAtaque())
+                            {
+                                SubirNivel(Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy());
+                                SetEstatus();
+                                cout<<"nivel actual "<<GetNivel()<<endl;
+                                cout<<"vida "<<GetVida()<<endl;
+                                cout<<"Ataque "<<GetAtaque()<<endl;
+                                cout<<"EXPERIENCIA DEL JUGADOR "<<experiencia<<endl;
+                                cout<<"EXPERIENCIA PROPORCIONADA "<<Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy()<<endl;
 
-                            Enviroment->GetEnemigos()[x]->SetVidaEnemy(2);
+                            }
+                            Enviroment->GetEnemigos()[x]->SetVidaEnemy(GetAtaque());
+
+//                            if(Enviroment->GetEnemigos()[x]->EnemigoEliminado())
+//                            {
+//                                destroy Enviroment->GetEnemigos()[x];
+//                            }
+
 //                            SetVida(1);
                             cout<<GetVida()<<endl;
                             if(vida<=0)
@@ -253,8 +343,15 @@ int check = timeCheck + 10;
             }
 }
 
+void MainCharacter::UpdateStats()
+{
+    SetEstatus();
+}
+
 void MainCharacter::Update()
 {
+
+    UpdateStats();
     UpdateAnimation();
     UpdateControls();
 

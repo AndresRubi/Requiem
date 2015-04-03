@@ -42,7 +42,15 @@ CEnviroment::~CEnviroment()
     {
         delete (*i);
     }
-            trees.clear();
+    trees.clear();
+
+//    for(vector<Enemigos*>::iterator x = enemies.begin(); x!= enemies.end(); x++)
+//    {
+//        delete (*x);
+//    }
+//    enemies.clear();
+
+
 }
 
 void CEnviroment::DrawBack()
@@ -60,11 +68,64 @@ void CEnviroment::DrawBack()
         (*i)->DrawTrunk();
     }
 
+
     for(vector<Enemigos*>::iterator p = enemies.begin(); p!= enemies.end(); p++)
     {
-        (*p)->Draw();
-        (*p)->Update();
+        if(!(*p)->EnemigoEliminado())
+        {
+            (*p)->Draw();
+            (*p)->Update();
+        }else if((*p)->EnemigoEliminado() && enemies.back()>0)
+        {
+
+            enemies.erase(p);
+
+
+        }
+
     }
+
+//    if(!OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F2 )
+//            {
+//                if(trees.size() > 0 )
+//                {
+//                    int count=0;
+//                    for(vector<Tree*>::iterator i = trees.begin(); i!= trees.end(); i++)
+//                    {
+//                        if(count == trees.size())
+//                        delete(*i);
+//
+//                        count++;
+//                    }
+//                    trees.pop_back();
+//
+//                }
+//                OnePressed = true;
+//            }
+
+
+
+//    if(enemies.size() >= 0 )
+//                {
+//
+//                    for(vector<Enemigos*>::iterator p = enemies.begin(); p!= enemies.end(); p++)
+//                    {
+//
+//
+//                        if(!(*p)->EnemigoEliminado())
+//                            {
+//                                (*p)->Draw();
+//                                (*p)->Update();
+//                            }
+//
+//                        else
+//                            delete(*p);
+//
+//
+//                    }
+//                    enemies.pop_back();
+//
+//                }
 
 }
 
@@ -318,11 +379,10 @@ void CEnviroment::SaveToFile()
 
     LoadedFile << "---====EndTree====---"<<endl;
 
-     LoadedFile.close();
+    LoadedFile.close();
 
     ///save de enemigo archer
     patito.open("data/stageEnemy.txt");
-
     patito << "---====BeginArcher====---"<<endl;
 
     for(vector<Enemigos*>::iterator x = enemies.begin(); x!= enemies.end(); x++)
@@ -388,7 +448,7 @@ void CEnviroment::Update()
         {
             if(!OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F11 )
             {
-
+                enemies.push_back(new Ninja_Enemigo(-1000,-1000,CameraX,CameraY,csdl_setup,"ninja"));
                 SaveToFile();
                 OnePressed = true;
             }

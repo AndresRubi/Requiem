@@ -37,26 +37,27 @@ Warrior_Enemigo::Warrior_Enemigo(int x, int y, float  *passed_CameraX, float *pa
 Warrior_Enemigo::~Warrior_Enemigo()
 {
     //dtor
+    delete enemy;
 }
 
 ///
-int Warrior_Enemigo::SetVidaEnemy(int ataquePersonaje)
+void Warrior_Enemigo::SetVidaEnemy(int ataquePersonaje)
 {
     vidaEnemy-=ataquePersonaje;
     cout<<vidaEnemy<<endl;
     if(vidaEnemy<=0)
     {
-        enemigoVivoMuerto=false;
+        enemigoVivoMuerto=true;
     }
 
 }
 
-int Warrior_Enemigo::SetAtaqueEnemy()
+void Warrior_Enemigo::SetAtaqueEnemy()
 {
     ataqueEnemy=2;
 }
 
-int Warrior_Enemigo::SetExperiencia()
+void Warrior_Enemigo::SetExperiencia()
 {
     ataqueEnemy=2;
 }

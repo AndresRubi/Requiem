@@ -16,6 +16,7 @@ Ninja_Enemigo::Ninja_Enemigo(int x,int y,float  *passed_CameraX, float *passed_C
 //    player = new CSprite(csdl_setup->GetRenderer(),"data/players/healer_m.png",96,144,32,36,CameraX,CameraY,CCollisionRectangle(80,126,28,36));
     enemy->SetUpAnimation(3,4);
 
+    tipoEnemigo="ninja";
     Follow =false;
     timeCheck = SDL_GetTicks();
     distance = 0;
@@ -24,7 +25,7 @@ Ninja_Enemigo::Ninja_Enemigo(int x,int y,float  *passed_CameraX, float *passed_C
     direccion=0;
     dir_rand=0;
     frame=0;
-    tipoEnemigo="ninja";
+
 
 
     enemigoVivoMuerto=false;
@@ -37,30 +38,42 @@ Ninja_Enemigo::Ninja_Enemigo(int x,int y,float  *passed_CameraX, float *passed_C
 Ninja_Enemigo::~Ninja_Enemigo()
 {
     //dtor
+    delete enemy;
 }
 
 ///
-int Ninja_Enemigo::SetVidaEnemy(int ataquePersonaje)
+void Ninja_Enemigo::SetVidaEnemy(int ataquePersonaje)
 {
     vidaEnemy-=ataquePersonaje;
     cout<<vidaEnemy<<endl;
     if(vidaEnemy<=0)
     {
-        enemigoVivoMuerto=false;
+         enemigoVivoMuerto=true;
     }
 
 }
 
-int Ninja_Enemigo::SetAtaqueEnemy()
+void Ninja_Enemigo::SetAtaqueEnemy()
 {
-    ataqueEnemy=2;
+     ataqueEnemy=2;
 }
 
-int Ninja_Enemigo::SetExperiencia()
+void Ninja_Enemigo::SetExperiencia()
 {
-    ataqueEnemy=2;
+     ataqueEnemy=2;
 }
 ///
+
+int Ninja_Enemigo::GetX()
+{
+    return x;
+}
+
+int Ninja_Enemigo::GetY()
+{
+    return y;
+}
+
 
 void Ninja_Enemigo::Draw()
 {
@@ -130,18 +143,12 @@ void Ninja_Enemigo::UpdateEnemyAnimation()
 
 
 }
-int Ninja_Enemigo::GetX()
-{
-    return x;
-}
-
-int Ninja_Enemigo::GetY()
-{
-    return y;
-}
 
 void Ninja_Enemigo::Update()
 {
-    UpdateEnemyAnimation();
-    UpdateEnemyMovement();
+    if(!enemigoVivoMuerto)
+    {
+        UpdateEnemyAnimation();
+        UpdateEnemyMovement();
+    }
 }

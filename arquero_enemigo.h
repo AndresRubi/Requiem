@@ -8,7 +8,6 @@ class Arquero_Enemigo : public Enemigos
         Arquero_Enemigo(int x,int y,float  *CameraX, float *CameraY,SDL_Setup *passed_SDL_Setup, string direcion_enemigo);
         virtual ~Arquero_Enemigo();
 
-
         void Draw();
         void Update();
 
@@ -20,9 +19,9 @@ class Arquero_Enemigo : public Enemigos
 
 
         int vidaEnemy,ataqueEnemy,experienciaEnemy;
-        int SetVidaEnemy(int ataquePersonaje);
-        int SetAtaqueEnemy();
-        int SetExperiencia();
+        void SetVidaEnemy(int ataquePersonaje);
+        void SetAtaqueEnemy();
+        void SetExperiencia();
 
         bool enemigoVivoMuerto;
         bool EnemigoEliminado(){return enemigoVivoMuerto;}
@@ -34,9 +33,6 @@ class Arquero_Enemigo : public Enemigos
 
     protected:
     private:
-
-
-
         int x,y;
         string tipoEnemigo;
         string getID(){return tipoEnemigo;}

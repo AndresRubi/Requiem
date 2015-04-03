@@ -19,9 +19,9 @@ class Warrior_Enemigo : public Enemigos
 
 
         int vidaEnemy,ataqueEnemy,experienciaEnemy;
-        int SetVidaEnemy(int ataquePersonaje);
-        int SetAtaqueEnemy();
-        int SetExperiencia();
+        void SetVidaEnemy(int ataquePersonaje);
+        void SetAtaqueEnemy();
+        void SetExperiencia();
 
         bool enemigoVivoMuerto;
         bool EnemigoEliminado(){return enemigoVivoMuerto;}
