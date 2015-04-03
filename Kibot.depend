@@ -40,10 +40,10 @@
 1425610115 source:/home/arubi/Documents/CodeBlocks/Kibot/sdl_setup.cpp
 	"sdl_setup.h"
 
-1428022772 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/cmain.cpp
+1428057976 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/cmain.cpp
 	"cmain.h"
 
-1427999390 /home/arubi/Documentos/Proyecto/Proyecto_Final/cmain.h
+1428057527 /home/arubi/Documentos/Proyecto/Proyecto_Final/cmain.h
 	"sdl_setup.h"
 	"csprite.h"
 	<iostream>
@@ -58,7 +58,7 @@
 	"ninja_enemigo.h"
 	"warrior_enemigo.h"
 
-1427727494 /home/arubi/Documentos/Proyecto/Proyecto_Final/sdl_setup.h
+1428050413 /home/arubi/Documentos/Proyecto/Proyecto_Final/sdl_setup.h
 	<iostream>
 	"SDL2/SDL.h"
 	"SDL2/SDL_image.h"
@@ -74,17 +74,17 @@
 1427816150 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/csprite.cpp
 	"csprite.h"
 
-1427727494 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/main.cpp
+1428057072 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/main.cpp
 	<iostream>
 	"SDL2/SDL.h"
 	"SDL2/SDL_image.h"
 	"SDL2/SDL_mixer.h"
 	"cmain.h"
 
-1427727494 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/sdl_setup.cpp
+1428050255 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/sdl_setup.cpp
 	"sdl_setup.h"
 
-1428039920 /home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.h
+1428043957 /home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.h
 	"sdl_setup.h"
 	"csprite.h"
 	"cenviroment.h"
@@ -94,7 +94,7 @@
 	"SDL2/SDL_mixer.h"
 	<math.h>
 
-1428040948 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.cpp
+1428057143 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.cpp
 	"maincharacter.h"
 
 1427727494 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/prueba.cpp
@@ -103,7 +103,7 @@
 1427727494 /home/arubi/Documentos/Proyecto/Proyecto_Final/prueba.h
 	"maincharacter.h"
 
-1428009844 /home/arubi/Documentos/Proyecto/Proyecto_Final/cenviroment.h
+1428053644 /home/arubi/Documentos/Proyecto/Proyecto_Final/cenviroment.h
 	"SDL2/SDL.h"
 	"SDL2/SDL_image.h"
 	"SDL2/SDL_mixer.h"
@@ -121,7 +121,7 @@
 	<string>
 	<sstream>
 
-1428034370 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/cenviroment.cpp
+1428053605 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/cenviroment.cpp
 	"cenviroment.h"
 
 1427729603 /home/arubi/Documentos/Proyecto/Proyecto_Final/tree.h
@@ -265,7 +265,7 @@
 	<map>
 	<fstream>
 
-1428038978 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/arquero_enemigo.cpp
+1428043028 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/arquero_enemigo.cpp
 	"arquero_enemigo.h"
 
 1428030852 /home/arubi/Documentos/Proyecto/Proyecto_Final/arquero_enemigo.h
@@ -276,7 +276,7 @@
 
 1427880270 /home/arubi/Documentos/Proyecto/Proyecto_Final/kamikaze_boss_enemigo.h
 
-1428030392 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/warrior_enemigo.cpp
+1428043029 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/warrior_enemigo.cpp
 	"warrior_enemigo.h"
 
 1428028855 /home/arubi/Documentos/Proyecto/Proyecto_Final/warrior_enemigo.h
@@ -287,7 +287,7 @@
 
 1427880300 /home/arubi/Documentos/Proyecto/Proyecto_Final/xultur_boss_enemigo.h
 
-1428030814 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/ninja_enemigo.cpp
+1428043028 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/ninja_enemigo.cpp
 	"ninja_enemigo.h"
 
 1428030860 /home/arubi/Documentos/Proyecto/Proyecto_Final/ninja_enemigo.h

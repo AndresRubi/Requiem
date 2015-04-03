@@ -81,16 +81,16 @@ void Arquero_Enemigo::Draw()
 void Arquero_Enemigo::UpdateEnemyMovement()
 {
             if(direccion==DOWN)
-                enemy->SetY(enemy->GetY()+ 0.1);
+                enemy->SetY(enemy->GetY()+ 0.2);
 
             else if(direccion == UP)
-                enemy->SetY(enemy->GetY()-0.1);
+                enemy->SetY(enemy->GetY()-0.2);
 
             else if(direccion == LEFT)
-                enemy->SetX(enemy->GetX()-0.1);
+                enemy->SetX(enemy->GetX()-0.2);
 
             else if(direccion == RIGHT)
-                enemy->SetX(enemy->GetX()+ 0.1);
+                enemy->SetX(enemy->GetX()+ 0.2);
 
 }
 

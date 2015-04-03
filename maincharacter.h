@@ -22,6 +22,7 @@ class MainCharacter
         double GetDistance(int X1, int Y1, int X2, int Y2);
         void Draw();
         void Update();
+        void UpdateCreator();
 
 
         int GetNivel(){return nivel;}
@@ -42,6 +43,8 @@ class MainCharacter
         CEnviroment *Enviroment;
 //        Enemigos *Contra_Enemigos;
 //        Enemigos* CEnemigos;
+
+        void UpdateCreatorControls();
         void UpdateStats();
         void UpdateAnimation();
         void UpdateControls();

@@ -30,6 +30,7 @@ class CEnviroment
         void Update();
         void SaveToFile();
         void LoadFromFile();
+        bool exitLoop;
 
         enum ModeType
         {

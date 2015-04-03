@@ -24,17 +24,19 @@ class CMain
         CMain(int passed_ScreenWidth, int passed_ScreenHeight);
         virtual ~CMain();
         void GameLoop();
-
-
+        void GMLoop();
+        bool Fin;
+        bool GetFin(){return Fin;}
+SDL_Setup* csdl_setup;
 
     protected:
 
     private:
-    MainCharacter *player;
+    MainCharacter *player,*GMPlayer;
     float CameraX;
     float CameraY;
 
-    CEnviroment* ForestArea;
+    CEnviroment* ForestArea,*GMForestArea;
 
     Enemigos* enemy1,*enemy2, *enemy3;
 
@@ -44,7 +46,7 @@ class CMain
     string hola;
 //    CSprite* grass[4][7];
 
-    SDL_Setup* csdl_setup;
+
 //    bool MoveRight;
 //    bool MoveUp;
 //    bool MoveDown;

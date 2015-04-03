@@ -18,7 +18,7 @@ CEnviroment::CEnviroment(int ScreenWidth, int ScreenHeight, float  *passed_Camer
 //    enemy2 = new Ninja_Enemigo(300,200,&CameraX,&CameraY,csdl_setup, "ninja");
 //    enemy3 = new Warrior_Enemigo(400,200,&CameraX,&CameraY,csdl_setup, "warrior");
 
-    Mode = Gameplay;
+    Mode = LevelCreation;
 
 OnePressed = false;
 //        tree = new Tree(300,300, CameraX,CameraY,csdl_setup);
@@ -50,7 +50,7 @@ CEnviroment::~CEnviroment()
 //    }
 //    enemies.clear();
 
-
+ exitLoop=false;
 }
 
 void CEnviroment::DrawBack()
@@ -599,6 +599,27 @@ void CEnviroment::Update()
         if(csdl_setup->GetMainEvent() -> type == SDL_KEYUP)
         {
             if(OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F12)
+            {
+                OnePressed = false;
+            }
+        }
+
+
+        ///
+
+
+    if(csdl_setup->GetMainEvent() -> type == SDL_KEYDOWN)
+        {
+            if(!OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_ESCAPE )
+            {
+                exitLoop=true;
+                OnePressed = true;
+            }
+        }
+
+        if(csdl_setup->GetMainEvent() -> type == SDL_KEYUP)
+        {
+            if(OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_ESCAPE)
             {
                 OnePressed = false;
             }

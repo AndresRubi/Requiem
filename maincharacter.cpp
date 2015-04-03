@@ -175,6 +175,59 @@ void MainCharacter::UpdateAnimation()
 
 }
 
+void MainCharacter::UpdateCreatorControls()
+{
+    if(csdl_setup->GetMainEvent()->type == SDL_MOUSEBUTTONDOWN || csdl_setup->GetMainEvent()->type == SDL_MOUSEMOTION)
+            {
+                if(csdl_setup->GetMainEvent()->button.button == SDL_BUTTON_LEFT)
+                {
+                    Follow_Point_X = *CameraX - *MouseX + 320;
+                    Follow_Point_Y = *CameraY - *MouseY + 200;
+                    Follow=true;
+                }
+            }
+
+
+    int check = timeCheck + 10;
+            if(check < SDL_GetTicks())
+            {
+
+
+////////                MOVER CON MOUSE
+                 distance= GetDistance(*CameraX,*CameraY, Follow_Point_X,Follow_Point_Y);
+
+                if(distance == 0 )
+                    stopAnimation = true;
+                else
+                    stopAnimation=false;
+
+                if(distance > 15)
+                {
+
+
+                        if(*CameraX != Follow_Point_X)
+                        {
+                            *CameraX = *CameraX - (((*CameraX  - Follow_Point_X) /distance) * 2.1f);
+                        }
+
+                        if(*CameraY != Follow_Point_Y)
+                        {
+                            *CameraY =  *CameraY - (((*CameraY - Follow_Point_Y) /distance) * 2.1f);
+                        }
+
+
+
+
+                }else
+                    Follow=false;
+
+                timeCheck = SDL_GetTicks();
+
+            }
+
+
+}
+
 void MainCharacter::UpdateControls()
 {
             if(csdl_setup->GetMainEvent()->type == SDL_MOUSEBUTTONDOWN || csdl_setup->GetMainEvent()->type == SDL_MOUSEMOTION)
@@ -186,42 +239,9 @@ void MainCharacter::UpdateControls()
                     Follow=true;
                 }
             }
-//            cada medio segundo el personaje se va a estar moviendo
-int check = timeCheck + 10;
+            int check = timeCheck + 10;
             if(check < SDL_GetTicks())
             {
-
-//////                movimiento con teclado
-//                if(csdl_setup->GetMainEvent()-> type)
-//             {
-//                if(csdl_setup->GetMainEvent()-> type == SDL_KEYDOWN)
-//                {
-//                    switch (csdl_setup->GetMainEvent()->key.keysym.sym)
-//                    {
-//                        case SDLK_a:
-//                        {
-//                            player->SetX(player->GetX() - 1);
-//                            break;
-//                        }
-//                        case SDLK_s:
-//                        {
-//                            player->SetY(player->GetY() + 1);
-//                            break;
-//                        }
-//                        case SDLK_w:
-//                        {
-//                            player->SetY(player->GetY() - 1);
-//                            break;
-//                        }
-//                        case SDLK_d:
-//                        {
-//                            player->SetX(player->GetX() + 1);
-//                            break;
-//                        }
-//                    }
-//                }
-//             }
-
 ////////                MOVER CON MOUSE
                  distance= GetDistance(*CameraX,*CameraY, Follow_Point_X,Follow_Point_Y);
 
@@ -264,6 +284,60 @@ int check = timeCheck + 10;
                         }
                     }
 
+
+
+                    ///con ataque
+//                    for(int x=0 ; x< Enviroment->GetEnemigos().size(); x++)
+//                    {
+//                        if(player->isColliding(Enviroment->GetEnemigos()[x]->GetEnemy()->GetCollisionRect()))
+//                        {
+//                            if(*CameraX > Follow_Point_X)
+//                            {
+//                                *CameraX = *CameraX +10;
+//                            }
+//                            if(*CameraX < Follow_Point_X)
+//                            {
+//                                *CameraX = *CameraX - 10;
+//                            }
+//
+//                            if(*CameraY > Follow_Point_Y)
+//                            {
+//                                *CameraY = *CameraY +10;
+//                            }
+//                            if(*CameraY < Follow_Point_Y)
+//                            {
+//                                *CameraY = *CameraY - 10;
+//                            }
+//
+//                            if((Enviroment->GetEnemigos()[x]->GetVidaEnemy() - GetAtaque()) < GetAtaque())
+//                            {
+//                                SubirNivel(Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy());
+//                                SetEstatus();
+//                                cout<<"nivel actual "<<GetNivel()<<endl;
+//                                cout<<"vida "<<GetVida()<<endl;
+//                                cout<<"Ataque "<<GetAtaque()<<endl;
+//                                cout<<"EXPERIENCIA DEL JUGADOR "<<experiencia<<endl;
+//                                cout<<"EXPERIENCIA PROPORCIONADA "<<Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy()<<endl;
+//
+//                            }
+//                            Enviroment->GetEnemigos()[x]->SetVidaEnemy(GetAtaque());
+//
+////                            SetVida(1);
+//                            cout<<GetVida()<<endl;
+//                            if(vida<=0)
+//                            {
+//                                VivoMuerto=true;
+//                                return;
+//                            }
+//                            Follow_Point_X = *CameraX;
+//                            Follow_Point_Y = *CameraY;
+//                            distance = 0 ;
+//                            Follow=false;
+//                            cout<<"colision con enemigo"<<endl;
+//                            colliding = true;
+//                        }
+//                    }
+                    ///final de ataque
                     ///prueba colision con enemigos modoAGRESIVO
                     for(int x=0 ; x< Enviroment->GetEnemigos().size(); x++)
                     {
@@ -287,31 +361,28 @@ int check = timeCheck + 10;
                                 *CameraY = *CameraY - 10;
                             }
 
-                            if((Enviroment->GetEnemigos()[x]->GetVidaEnemy() - GetAtaque()) < GetAtaque())
-                            {
-                                SubirNivel(Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy());
-                                SetEstatus();
-                                cout<<"nivel actual "<<GetNivel()<<endl;
-                                cout<<"vida "<<GetVida()<<endl;
-                                cout<<"Ataque "<<GetAtaque()<<endl;
-                                cout<<"EXPERIENCIA DEL JUGADOR "<<experiencia<<endl;
-                                cout<<"EXPERIENCIA PROPORCIONADA "<<Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy()<<endl;
-
-                            }
-                            Enviroment->GetEnemigos()[x]->SetVidaEnemy(GetAtaque());
-
-//                            if(Enviroment->GetEnemigos()[x]->EnemigoEliminado())
+//                            if((Enviroment->GetEnemigos()[x]->GetVidaEnemy() - GetAtaque()) < GetAtaque())
 //                            {
-//                                destroy Enviroment->GetEnemigos()[x];
+//                                SubirNivel(Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy());
+//                                SetEstatus();
+//                                cout<<"nivel actual "<<GetNivel()<<endl;
+//                                cout<<"vida "<<GetVida()<<endl;
+//                                cout<<"Ataque "<<GetAtaque()<<endl;
+//                                cout<<"EXPERIENCIA DEL JUGADOR "<<experiencia<<endl;
+//                                cout<<"EXPERIENCIA PROPORCIONADA "<<Enviroment->GetEnemigos()[x]->GetExpecienciaEnemy()<<endl;
+//
 //                            }
+//                            Enviroment->GetEnemigos()[x]->SetVidaEnemy(GetAtaque());
 
-//                            SetVida(1);
+                            SetVida(Enviroment->GetEnemigos()[x]->GetAtaqueEnemy());
                             cout<<GetVida()<<endl;
-                            if(vida<=0)
+                            if(GetVida()<=0)
+
                             {
                                 VivoMuerto=true;
-                                cout<<"muerto"<<endl;
                             }
+
+
                             Follow_Point_X = *CameraX;
                             Follow_Point_Y = *CameraY;
                             distance = 0 ;
@@ -321,6 +392,7 @@ int check = timeCheck + 10;
                         }
                     }
                     ///fin de prueba enemigos
+
                     if(!colliding)
                     {
                         if(*CameraX != Follow_Point_X)
@@ -341,6 +413,7 @@ int check = timeCheck + 10;
                 timeCheck = SDL_GetTicks();
 
             }
+
 }
 
 void MainCharacter::UpdateStats()
@@ -355,13 +428,13 @@ void MainCharacter::Update()
     UpdateAnimation();
     UpdateControls();
 
-//    for(int i = 0 ; i<Enviroment->GetTrees().size(); i++)
-//    {
-//        if(player->isColliding(Enviroment->GetTrees()[i]->GetTrunk() ->GetCollisionRect()))
-//        {
-//            cout<<"colliding iwth a tree"<<endl;
-//        }
-//    }
+
+}
+
+void MainCharacter::UpdateCreator()
+{
+    UpdateAnimation();
+    UpdateCreatorControls();
 }
 
 double MainCharacter::GetDistance(int X1, int Y1, int X2, int Y2)

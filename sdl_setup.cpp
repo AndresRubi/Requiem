@@ -17,6 +17,7 @@ SDL_Setup::SDL_Setup(bool* quit,int ScreenWidth, int ScreenHeight)
     renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
 
     mainEvent = new SDL_Event();
+
 }
 
 SDL_Setup::~SDL_Setup()

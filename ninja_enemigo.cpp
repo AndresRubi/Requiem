@@ -31,7 +31,7 @@ Ninja_Enemigo::Ninja_Enemigo(int x,int y,float  *passed_CameraX, float *passed_C
     enemigoVivoMuerto=false;
     vidaEnemy = 10;
     ataqueEnemy =2;
-    experienciaEnemy=10;
+    experienciaEnemy=4;
 
 }
 
@@ -83,22 +83,22 @@ void Ninja_Enemigo::Draw()
 void Ninja_Enemigo::UpdateEnemyMovement()
 {
             if(direccion==DOWN)
-                enemy->SetY(enemy->GetY()+ 0.1);
+                enemy->SetY(enemy->GetY()+ 0.3);
 
             else if(direccion == UP)
-                enemy->SetY(enemy->GetY()-0.1);
+                enemy->SetY(enemy->GetY()-0.3);
 
             else if(direccion == LEFT)
-                enemy->SetX(enemy->GetX()-0.1);
+                enemy->SetX(enemy->GetX()-0.3);
 
             else if(direccion == RIGHT)
-                enemy->SetX(enemy->GetX()+ 0.1);
+                enemy->SetX(enemy->GetX()+ 0.3);
 
 }
 
 void Ninja_Enemigo::UpdateEnemyAnimation()
 {
-        if(frame%500==0)
+        if(frame%380==0)
         dir_rand = rand() % 4 + 1;
         movimientoPrueba = dir_rand;
            switch(movimientoPrueba)
