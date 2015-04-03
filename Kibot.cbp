@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Kibot" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Kibot" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Kibot" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="arquero_enemigo.cpp" />
+		<Unit filename="arquero_enemigo.h" />
+		<Unit filename="ccollisionrectangle.cpp" />
+		<Unit filename="ccollisionrectangle.h" />
+		<Unit filename="cenviroment.cpp" />
+		<Unit filename="cenviroment.h" />
+		<Unit filename="cmain.cpp" />
+		<Unit filename="cmain.h" />
+		<Unit filename="csprite.cpp" />
+		<Unit filename="csprite.h" />
+		<Unit filename="enemigos.cpp" />
+		<Unit filename="enemigos.h" />
+		<Unit filename="kamikaze_boss_enemigo.cpp" />
+		<Unit filename="kamikaze_boss_enemigo.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="maincharacter.cpp" />
+		<Unit filename="maincharacter.h" />
+		<Unit filename="ninja_enemigo.cpp" />
+		<Unit filename="ninja_enemigo.h" />
+		<Unit filename="sdl_setup.cpp" />
+		<Unit filename="sdl_setup.h" />
+		<Unit filename="tree.cpp" />
+		<Unit filename="tree.h" />
+		<Unit filename="warrior_enemigo.cpp" />
+		<Unit filename="warrior_enemigo.h" />
+		<Unit filename="xultur_boss_enemigo.cpp" />
+		<Unit filename="xultur_boss_enemigo.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

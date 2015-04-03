@@ -1,0 +1,295 @@
+# depslib dependency file v1.0
+1425615524 source:/home/arubi/Documents/CodeBlocks/Kibot/main.cpp
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"cmain.h"
+
+1425578913 /home/arubi/Documents/CodeBlocks/Kibot/stdafx.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+
+1425614687 source:/home/arubi/Documents/CodeBlocks/Kibot/cmain.cpp
+	"cmain.h"
+
+1425615559 /home/arubi/Documents/CodeBlocks/Kibot/cmain.h
+	"sdl_setup.h"
+	"csprite.h"
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+
+1425615798 /home/arubi/Documents/CodeBlocks/Kibot/sdl_setup.h
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+
+1425614749 source:/home/arubi/Documents/CodeBlocks/Kibot/csprite.cpp
+	"csprite.h"
+
+1425614586 /home/arubi/Documents/CodeBlocks/Kibot/csprite.h
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+
+1425610115 source:/home/arubi/Documents/CodeBlocks/Kibot/sdl_setup.cpp
+	"sdl_setup.h"
+
+1428022772 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/cmain.cpp
+	"cmain.h"
+
+1427999390 /home/arubi/Documentos/Proyecto/Proyecto_Final/cmain.h
+	"sdl_setup.h"
+	"csprite.h"
+	<iostream>
+	"maincharacter.h"
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	<math.h>
+	"cenviroment.h"
+	"enemigos.h"
+	"arquero_enemigo.h"
+	"ninja_enemigo.h"
+	"warrior_enemigo.h"
+
+1427727494 /home/arubi/Documentos/Proyecto/Proyecto_Final/sdl_setup.h
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+
+1427816150 /home/arubi/Documentos/Proyecto/Proyecto_Final/csprite.h
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"ccollisionrectangle.h"
+
+1427816150 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/csprite.cpp
+	"csprite.h"
+
+1427727494 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/main.cpp
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"cmain.h"
+
+1427727494 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/sdl_setup.cpp
+	"sdl_setup.h"
+
+1428023540 /home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.h
+	"sdl_setup.h"
+	"csprite.h"
+	"cenviroment.h"
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	<math.h>
+
+1428024360 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.cpp
+	"maincharacter.h"
+
+1427727494 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/prueba.cpp
+	"prueba.h"
+
+1427727494 /home/arubi/Documentos/Proyecto/Proyecto_Final/prueba.h
+	"maincharacter.h"
+
+1428009844 /home/arubi/Documentos/Proyecto/Proyecto_Final/cenviroment.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"sdl_setup.h"
+	"csprite.h"
+	<math.h>
+	<iostream>
+	"tree.h"
+	"enemigos.h"
+	"arquero_enemigo.h"
+	"warrior_enemigo.h"
+	"ninja_enemigo.h"
+	<vector>
+	<fstream>
+	<string>
+	<sstream>
+
+1428021075 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/cenviroment.cpp
+	"cenviroment.h"
+
+1427729603 /home/arubi/Documentos/Proyecto/Proyecto_Final/tree.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"sdl_setup.h"
+	"csprite.h"
+	<math.h>
+	<iostream>
+	<vector>
+
+1427868429 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/tree.cpp
+	"tree.h"
+
+1427728905 /home/arubi/Documentos/Proyecto/Proyecto_Final/ccollisionrectangle.h
+	"sdl_setup.h"
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	<math.h>
+
+1427728905 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/ccollisionrectangle.cpp
+	"ccollisionrectangle.h"
+
+1427131632 source:/home/turupawn/Proyecto_Final/ccollisionrectangle.cpp
+	"ccollisionrectangle.h"
+
+1427131632 /home/turupawn/Proyecto_Final/ccollisionrectangle.h
+	"sdl_setup.h"
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	<math.h>
+
+1427131031 /home/turupawn/Proyecto_Final/sdl_setup.h
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+
+1427131971 source:/home/turupawn/Proyecto_Final/cenviroment.cpp
+	"cenviroment.h"
+
+1427131032 /home/turupawn/Proyecto_Final/cenviroment.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"sdl_setup.h"
+	"csprite.h"
+	<math.h>
+	<iostream>
+	"tree.h"
+	<vector>
+	<fstream>
+	<string>
+	<sstream>
+
+1427131032 /home/turupawn/Proyecto_Final/csprite.h
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"ccollisionrectangle.h"
+
+1427131031 /home/turupawn/Proyecto_Final/tree.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"sdl_setup.h"
+	"csprite.h"
+	<math.h>
+	<iostream>
+	<vector>
+
+1427131032 source:/home/turupawn/Proyecto_Final/cmain.cpp
+	"cmain.h"
+
+1427131032 /home/turupawn/Proyecto_Final/cmain.h
+	"sdl_setup.h"
+	"csprite.h"
+	<iostream>
+	"maincharacter.h"
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	<math.h>
+	"cenviroment.h"
+
+1427131032 /home/turupawn/Proyecto_Final/maincharacter.h
+	"sdl_setup.h"
+	"csprite.h"
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	<math.h>
+
+1427131638 source:/home/turupawn/Proyecto_Final/csprite.cpp
+	"csprite.h"
+
+1427131032 source:/home/turupawn/Proyecto_Final/main.cpp
+	<iostream>
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"cmain.h"
+
+1427131032 source:/home/turupawn/Proyecto_Final/maincharacter.cpp
+	"maincharacter.h"
+
+1427131031 source:/home/turupawn/Proyecto_Final/prueba.cpp
+	"prueba.h"
+
+1427131031 /home/turupawn/Proyecto_Final/prueba.h
+	"maincharacter.h"
+
+1427131032 source:/home/turupawn/Proyecto_Final/sdl_setup.cpp
+	"sdl_setup.h"
+
+1427132176 source:/home/turupawn/Proyecto_Final/tree.cpp
+	"tree.h"
+
+1428015741 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/enemigos.cpp
+	"enemigos.h"
+
+1428024339 /home/arubi/Documentos/Proyecto/Proyecto_Final/enemigos.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"SDL2/SDL_mixer.h"
+	"sdl_setup.h"
+	"csprite.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<vector>
+	<list>
+	<iostream>
+	<map>
+	<fstream>
+
+1428024339 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/arquero_enemigo.cpp
+	"arquero_enemigo.h"
+
+1428024339 /home/arubi/Documentos/Proyecto/Proyecto_Final/arquero_enemigo.h
+	"enemigos.h"
+
+1427880270 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/kamikaze_boss_enemigo.cpp
+	"kamikaze_boss_enemigo.h"
+
+1427880270 /home/arubi/Documentos/Proyecto/Proyecto_Final/kamikaze_boss_enemigo.h
+
+1428024407 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/warrior_enemigo.cpp
+	"warrior_enemigo.h"
+
+1428024339 /home/arubi/Documentos/Proyecto/Proyecto_Final/warrior_enemigo.h
+	"enemigos.h"
+
+1427880300 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/xultur_boss_enemigo.cpp
+	"xultur_boss_enemigo.h"
+
+1427880300 /home/arubi/Documentos/Proyecto/Proyecto_Final/xultur_boss_enemigo.h
+
+1428024233 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/ninja_enemigo.cpp
+	"ninja_enemigo.h"
+
+1428024339 /home/arubi/Documentos/Proyecto/Proyecto_Final/ninja_enemigo.h
+	"enemigos.h"
+
