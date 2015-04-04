@@ -29,8 +29,8 @@ Warrior_Enemigo::Warrior_Enemigo(int x, int y, float  *passed_CameraX, float *pa
 
 
     enemigoVivoMuerto=false;
-    vidaEnemy = 10;
-    ataqueEnemy =2;
+    vidaEnemy = 25;
+    ataqueEnemy =8;
     experienciaEnemy=6;
 }
 

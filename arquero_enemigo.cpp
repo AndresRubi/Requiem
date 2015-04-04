@@ -27,8 +27,8 @@ Arquero_Enemigo::Arquero_Enemigo(int x,int y,float  *passed_CameraX, float *pass
     frame=0;
 
     enemigoVivoMuerto=false;
-    vidaEnemy = 10;
-    ataqueEnemy =2;
+    vidaEnemy = 8;
+    ataqueEnemy =1;
     experienciaEnemy=2;
 
 }

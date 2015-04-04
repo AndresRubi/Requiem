@@ -40,7 +40,7 @@ class Enemigos
         virtual void SetAtaqueEnemy()=0;
         virtual void SetExperiencia()=0;
 
-
+        virtual void AnimacionMuerte()=0;
         bool enemigoVivoMuerto;
         virtual bool EnemigoEliminado()=0;
         virtual int GetVidaEnemy()=0;

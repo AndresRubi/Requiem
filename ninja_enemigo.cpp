@@ -29,8 +29,8 @@ Ninja_Enemigo::Ninja_Enemigo(int x,int y,float  *passed_CameraX, float *passed_C
 
 
     enemigoVivoMuerto=false;
-    vidaEnemy = 10;
-    ataqueEnemy =2;
+    vidaEnemy = 12;
+    ataqueEnemy =6;
     experienciaEnemy=4;
 
 }

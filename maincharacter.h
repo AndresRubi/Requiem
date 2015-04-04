@@ -24,7 +24,8 @@ class MainCharacter
         void Update();
         void UpdateCreator();
 
-
+        bool atacando;
+        bool OnePressed;
         int GetNivel(){return nivel;}
         int GetVida(){return vida;}
         int GetAtaque(){return ataque;}
@@ -35,19 +36,27 @@ class MainCharacter
         void SetEstatus();
         void SetVidaNivel(int porNivel);
         void SetAtaqueNivel(int porNivel);
-        bool VivoMuerto;
+        bool VivoMuerto,Ganar;
+        void UpdateHealthBar();
+        void UpdatePantallaWin(bool Ganar);
+        void UpdatePantallaMuerte(bool VivoMuerto);
 
     protected:
     private:
+        Mix_Chunk *hit,*killEnemy,*killXultur,*contactXultur;
+        Mix_Music *loose,*win;
+        bool XulturMessage;
+
         int vida, ataque,experiencia,nivel;
         CEnviroment *Enviroment;
 //        Enemigos *Contra_Enemigos;
 //        Enemigos* CEnemigos;
-
+        int w,h;
         void UpdateCreatorControls();
         void UpdateStats();
         void UpdateAnimation();
         void UpdateControls();
+
 
         int *MouseX, *MouseY;
         float *CameraX;
@@ -62,6 +71,16 @@ class MainCharacter
         bool stopAnimation;
 
 
+        int vidaLvl1,vidaLvl2,vidaLvl3,vidaLvl4,vidaLvl5;
+        int por1,por2,por3,por4,po5;
+        int vidaActual;
+        int passedNivel;
+
+        int porcentual;
+
+
+        SDL_Texture *healthBars,*healthBarActual,*deathScreen,*winScreen;
+        SDL_Rect rect_bar,rect_deatScreen,rect_winScreen;
 
 
 };

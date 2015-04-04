@@ -44,11 +44,11 @@ CEnviroment::~CEnviroment()
     }
     trees.clear();
 
-//    for(vector<Enemigos*>::iterator x = enemies.begin(); x!= enemies.end(); x++)
-//    {
-//        delete (*x);
-//    }
-//    enemies.clear();
+    for(vector<Enemigos*>::iterator x = enemies.begin(); x!= enemies.end(); x++)
+    {
+        delete (*x);
+    }
+    enemies.clear();
 
  exitLoop=false;
 }
@@ -85,48 +85,6 @@ void CEnviroment::DrawBack()
 
     }
 
-//    if(!OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F2 )
-//            {
-//                if(trees.size() > 0 )
-//                {
-//                    int count=0;
-//                    for(vector<Tree*>::iterator i = trees.begin(); i!= trees.end(); i++)
-//                    {
-//                        if(count == trees.size())
-//                        delete(*i);
-//
-//                        count++;
-//                    }
-//                    trees.pop_back();
-//
-//                }
-//                OnePressed = true;
-//            }
-
-
-
-//    if(enemies.size() >= 0 )
-//                {
-//
-//                    for(vector<Enemigos*>::iterator p = enemies.begin(); p!= enemies.end(); p++)
-//                    {
-//
-//
-//                        if(!(*p)->EnemigoEliminado())
-//                            {
-//                                (*p)->Draw();
-//                                (*p)->Update();
-//                            }
-//
-//                        else
-//                            delete(*p);
-//
-//
-//                    }
-//                    enemies.pop_back();
-//
-//                }
-
 }
 
 void CEnviroment::DrawFront()
@@ -146,12 +104,15 @@ void CEnviroment::LoadFromFile()
     ifstream LoadedFile("data/stageLayout.txt");
     ifstream patito("data/stageEnemy.txt");
     ifstream war("data/stageEnemyWarrior.txt");
+    ifstream xul("data/coordinates/stageEnemyXultur.txt");
+    ifstream kam("data/coordinates/stageEnemyKamikaze.txt");
     ifstream nin("data/stageEnemyNinja.txt");
+
     string line;
 
 
     enum ObjetType{ TypeNone,
-        TypeTree,TypeArcher,TypeWarrior,TypeNinja
+        TypeTree,TypeArcher,TypeWarrior,TypeNinja,TypeKamikaze,TypeXultur
         };
 
     int CurrentType = TypeNone;
@@ -310,7 +271,114 @@ void CEnviroment::LoadFromFile()
     {
         cout<<"no pudo abrir el archivo warrior"<<endl;
     }
+///BEGIN BOSSES
 
+/// BEGIN XULTUR
+if(xul.is_open())
+    {
+        while(xul.good())
+        {
+            getline(xul,line);
+            if(line == "---====BeginXultur====---" )
+            {
+                CurrentType = TypeXultur;
+            }
+            else if(line == "---====EndXultur====---")
+            {
+                CurrentType = TypeXultur;
+            }
+            else
+            {
+                if(CurrentType == TypeXultur)
+                {
+
+                    istringstream iss(line);
+                    string previousWord = "";
+                    int TempX = 0;
+                    int TempY = 0;
+
+                    while(iss)
+                    {
+                        string word;
+                        iss>> word;
+
+
+
+                        if(previousWord ==  "x:")
+                        {
+                            TempX = atoi(word.c_str());
+
+                        }
+                        if(previousWord == "y:")
+                        {
+                            TempY = atoi(word.c_str());
+                            enemies.push_back(new Xultur_Boss_Enemigo(TempX,TempY,CameraX,CameraY,csdl_setup,"xultur"));
+                        }
+                        previousWord = word;
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        cout<<"no pudo abrir el archivo xultur"<<endl;
+    }
+/// END XULTUR
+
+/// BEGIN KAMIKAZE
+/// END KAMIKAZE
+if(kam.is_open())
+    {
+        while(kam.good())
+        {
+            getline(kam,line);
+            if(line == "---====BeginKamikaze====---" )
+            {
+                CurrentType = TypeKamikaze;
+            }
+            else if(line == "---====EndKamikaze====---")
+            {
+                CurrentType = TypeKamikaze;
+            }
+            else
+            {
+                if(CurrentType == TypeKamikaze)
+                {
+
+                    istringstream iss(line);
+                    string previousWord = "";
+                    int TempX = 0;
+                    int TempY = 0;
+
+                    while(iss)
+                    {
+                        string word;
+                        iss>> word;
+
+
+
+                        if(previousWord ==  "x:")
+                        {
+                            TempX = atoi(word.c_str());
+
+                        }
+                        if(previousWord == "y:")
+                        {
+                            TempY = atoi(word.c_str());
+                            enemies.push_back(new Kamikaze_Boss_Enemigo(TempX,TempY,CameraX,CameraY,csdl_setup,"kamikaze"));
+                        }
+                        previousWord = word;
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        cout<<"no pudo abrir el archivo kamikaze"<<endl;
+    }
+///END BOSSES
     if(nin.is_open())
     {
         while(nin.good())
@@ -365,7 +433,7 @@ void CEnviroment::LoadFromFile()
 
 void CEnviroment::SaveToFile()
 {
-    ofstream LoadedFile,patito,burbuja,ninja;
+    ofstream LoadedFile,patito,burbuja,ninja,xultur,kamikaze;
 
     LoadedFile.open("data/stageLayout.txt");
 
@@ -415,6 +483,44 @@ void CEnviroment::SaveToFile()
     burbuja << "---====EndWarrior====---"<<endl;
     burbuja.close();
     ///end
+
+    ///KAMIKAZE
+
+    kamikaze.open("data/coordinates/stageEnemyKamikaze.txt");
+    kamikaze << "---====BeginKamikaze====---"<<endl;
+
+    for(vector<Enemigos*>::iterator x = enemies.begin(); x!= enemies.end(); x++)
+        {
+            if((*x)->getID() == "kamikaze")
+            {
+                (*x)->Draw();
+                kamikaze << "x: "<< (*x)->GetX() <<"\ty: "<< (*x)->GetY() <<endl;
+            }
+        }
+    kamikaze << "---====EndKamikaze====---"<<endl;
+    kamikaze.close();
+    ///KAMIKAZE END
+
+
+    ///XULTUR
+
+    xultur.open("data/coordinates/stageEnemyXultur.txt");
+    xultur << "---====BeginXultur====---"<<endl;
+
+    for(vector<Enemigos*>::iterator x = enemies.begin(); x!= enemies.end(); x++)
+        {
+            if((*x)->getID() == "xultur")
+            {
+                (*x)->Draw();
+                xultur << "x: "<< (*x)->GetX() <<"\ty: "<< (*x)->GetY() <<endl;
+            }
+        }
+    xultur << "---====EndXultur====---"<<endl;
+    xultur.close();
+    ///XULTUR END
+
+
+
 
 ///new
     ninja.open("data/stageEnemyNinja.txt");
@@ -538,6 +644,44 @@ void CEnviroment::Update()
                 OnePressed = false;
             }
         }
+
+        ///BOSSES XULTUR KAMIKAZE
+        if(csdl_setup->GetMainEvent() -> type == SDL_KEYDOWN)
+        {
+            if(!OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F8)
+            {
+                enemies.push_back(new Kamikaze_Boss_Enemigo(-*CameraX+310,-*CameraY+160,CameraX,CameraY,csdl_setup,"kamikaze"));
+                OnePressed = true;
+                cout<<"creo el boss Kamikaze"<<endl;
+            }
+        }
+
+        if(csdl_setup->GetMainEvent() -> type == SDL_KEYUP)
+        {
+            if(OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F8)
+            {
+                OnePressed = false;
+            }
+        }
+        ///DIVISION
+        if(csdl_setup->GetMainEvent() -> type == SDL_KEYDOWN)
+        {
+            if(!OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F9)
+            {
+                enemies.push_back(new Xultur_Boss_Enemigo(-*CameraX+310,-*CameraY+160,CameraX,CameraY,csdl_setup,"xultur"));
+                OnePressed = true;
+                cout<<"creo el boss XULTUR"<<endl;
+            }
+        }
+
+        if(csdl_setup->GetMainEvent() -> type == SDL_KEYUP)
+        {
+            if(OnePressed && csdl_setup->GetMainEvent() -> key.keysym.sym == SDLK_F9)
+            {
+                OnePressed = false;
+            }
+        }
+        ///END BOSSES
 
         ///find de prueba de enemigo
 

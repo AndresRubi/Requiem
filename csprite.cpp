@@ -33,7 +33,7 @@ CSprite::CSprite(SDL_Renderer* passed_renderer,string FilePath,int x,int y, int 
     }
 
     CollisionImage = NULL;
-    CollisionImage = IMG_LoadTexture(renderer,"data/debug/collision.png");
+//    CollisionImage = IMG_LoadTexture(renderer,"data/debug/collision.png");
      if(CollisionImage == NULL)
         {
             cout<<"no pudo cargar el fondásdasdasdo"<<endl;

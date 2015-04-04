@@ -32,6 +32,7 @@ class Warrior_Enemigo : public Enemigos
 
     protected:
     private:
+    void AnimacionMuerte(){return;}
         string tipoEnemigo;
         string getID(){return tipoEnemigo;}
     CSprite* GetEnemy() {return enemy;}

@@ -13,6 +13,8 @@
 #include "arquero_enemigo.h"
 #include "warrior_enemigo.h"
 #include "ninja_enemigo.h"
+#include "xultur_boss_enemigo.h"
+#include "kamikaze_boss_enemigo.h"
 
 
 #include <vector>

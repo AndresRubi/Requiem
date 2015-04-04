@@ -15,6 +15,7 @@
 #include "arquero_enemigo.h"
 #include "ninja_enemigo.h"
 #include "warrior_enemigo.h"
+#include "xultur_boss_enemigo.h"
 
 using namespace std;
 
@@ -44,6 +45,9 @@ SDL_Setup* csdl_setup;
     bool quit;
     SDL_Event *GMod;
     string hola;
+    Mix_Music *music,*testLost;
+    Mix_Chunk *sound;
+
 //    CSprite* grass[4][7];
 
 

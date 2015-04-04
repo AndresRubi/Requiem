@@ -33,6 +33,7 @@ class Ninja_Enemigo : public Enemigos
 
     protected:
     private:
+    void AnimacionMuerte(){return;}
         int x,y;
         string tipoEnemigo;
         string getID(){return tipoEnemigo;}
