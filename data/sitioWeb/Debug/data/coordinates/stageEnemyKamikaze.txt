@@ -1,0 +1,3 @@
+---====BeginKamikaze====---
+x: 490	y: 396
+---====EndWarrior====---
