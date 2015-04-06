@@ -27,7 +27,7 @@ Kamikaze_Boss_Enemigo::Kamikaze_Boss_Enemigo(int x,int y,float  *passed_CameraX,
 
     enemigoVivoMuerto=false;
     vidaEnemy = 30;
-    ataqueEnemy =8;
+    ataqueEnemy =10;
     experienciaEnemy=70;
 
 }

@@ -59,74 +59,75 @@ MainCharacter::MainCharacter(SDL_Setup* passed_SDL_Setup, int *passed_MouseX, in
 //    win=NULL;
 //    loose=NULL;
 
-        if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
-        {
-            printf("SDL_mixer Error %s\n", SDL_GetError());
-        }
-        hit=Mix_LoadWAV("data/media/audio/personaje/hit.ogg");
-        if(hit ==  NULL)
-        {
-            printf("coulnt load  Error %s\n", Mix_GetError());
-        }
+    if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
+    {
+        printf("SDL_mixer Error %s\n", SDL_GetError());
+    }
+    hit=Mix_LoadWAV("data/media/audio/personaje/hit.ogg");
+    if(hit ==  NULL)
+    {
+        printf("coulnt load  Error %s\n", Mix_GetError());
+    }
 
 
 
-        if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
-        {
-            printf("SDL_mixer Error %s\n", SDL_GetError());
-        }
-        killEnemy=Mix_LoadWAV("data/media/audio/enemigo/kill.ogg");
-        if(killEnemy ==  NULL)
-        {
-            printf("coulnt load  Error %s\n", Mix_GetError());
-        }
+    if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
+    {
+        printf("SDL_mixer Error %s\n", SDL_GetError());
+    }
+    killEnemy=Mix_LoadWAV("data/media/audio/enemigo/kill.ogg");
+    if(killEnemy ==  NULL)
+    {
+        printf("coulnt load  Error %s\n", Mix_GetError());
+    }
 
 
 
-        if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
-        {
-            printf("SDL_mixer Error %s\n", SDL_GetError());
-        }
-        killXultur=Mix_LoadWAV("data/media/audio/enemigo/muerteXultur.ogg");
-        if(killXultur ==  NULL)
-        {
-            printf("coulnt load  muerte xultur Error %s\n", Mix_GetError());
-        }
+    if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
+    {
+        printf("SDL_mixer Error %s\n", SDL_GetError());
+    }
+    killXultur=Mix_LoadWAV("data/media/audio/enemigo/muerteXultur.ogg");
+    if(killXultur ==  NULL)
+    {
+        printf("coulnt load  muerte xultur Error %s\n", Mix_GetError());
+    }
 
 
 
-        if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
-        {
-            printf("SDL_mixer Error %s\n", SDL_GetError());
-        }
-        contactXultur=Mix_LoadWAV("data/media/audio/enemigo/messageXultur.ogg");
-        if(contactXultur ==  NULL)
-        {
-            printf("coulnt load  messange Error %s\n", Mix_GetError());
-        }
+    if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
+    {
+        printf("SDL_mixer Error %s\n", SDL_GetError());
+    }
+    contactXultur=Mix_LoadWAV("data/media/audio/enemigo/messageXultur.ogg");
+    if(contactXultur ==  NULL)
+    {
+        printf("coulnt load  messange Error %s\n", Mix_GetError());
+    }
 
-                if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
-        {
-            printf("SDL_mixer Error %s\n", SDL_GetError());
-        }
-        win=Mix_LoadMUS("data/media/audio/personaje/winPersonaje.ogg");
-        if(win == NULL)
-        {
-            printf("coulnt load  Error %s\n", Mix_GetError());
-        }
+    if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
+    {
+        printf("SDL_mixer Error %s\n", SDL_GetError());
+    }
+    win=Mix_LoadMUS("data/media/audio/personaje/winPersonaje.ogg");
+    if(win == NULL)
+    {
+        printf("coulnt load  Error %s\n", Mix_GetError());
+    }
 
-                if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
-        {
-            printf("SDL_mixer Error %s\n", SDL_GetError());
-        }
-        loose=Mix_LoadMUS("data/media/audio/personaje/muertePersonaje.ogg");
-        if(loose == NULL)
-        {
-            printf("coulnt load  Error %s\n", Mix_GetError());
-        }
-        XulturMessage=true;
+    if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
+    {
+        printf("SDL_mixer Error %s\n", SDL_GetError());
+    }
+    loose=Mix_LoadMUS("data/media/audio/personaje/muertePersonaje.ogg");
+    if(loose == NULL)
+    {
+        printf("coulnt load  Error %s\n", Mix_GetError());
+    }
+    XulturMessage=true;
 
-        Ganar=false;
+    Ganar=false;
+    initTTF();
 }
 
 MainCharacter::~MainCharacter()
@@ -135,6 +136,57 @@ MainCharacter::~MainCharacter()
 //    delete deathScreen;
 //    delete healthBars;
     delete player;
+}
+
+void MainCharacter::initTTF()
+{
+    if(TTF_Init()==-1)
+    {
+        printf("TTF_Init: %s\n", TTF_GetError());
+        exit(2);
+    }
+//
+    TTF_Font *myFont;
+    myFont=TTF_OpenFont("tahoma.ttf", 16);
+    if(!myFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        // handle error
+    }
+
+    Sans = TTF_OpenFont("tahoma.ttf", 16); //this opens a font style and sets a size
+    if(!Sans)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        // handle error
+    }
+    White = {0, 0, 0};  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+    cout<<"Finalice"<<endl;
+}
+
+void MainCharacter::showTTF(int passe_nivel)
+{
+     stringstream strs;
+    strs << passe_nivel;
+    string temp_str = strs.str();
+    char* char_type = (char*) temp_str.c_str();
+
+    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, char_type, White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+
+    SDL_Texture* Message = SDL_CreateTextureFromSurface(csdl_setup->GetRenderer(), surfaceMessage); //now you can convert it into a texture
+
+    SDL_Rect Message_rect; //create a rect
+    Message_rect.x = 300;  //controls the rect's x coordinate
+    Message_rect.y = 0; // controls the rect's y coordinte
+    Message_rect.w = 50; // controls the width of the rect
+    Message_rect.h = 50; // controls the height of the rect
+
+//Mind you that (0,0) is on the top left of the window/screen, think a rect as the text's box, that way it would be very simple to understance
+
+//Now since it's a texture, you have to put RenderCopy in your game loop area, the area where the whole code executes
+
+    SDL_RenderCopy(csdl_setup->GetRenderer(), Message, NULL, &Message_rect);
+
 }
 
 void MainCharacter::UpdatePantallaWin(bool Ganar)
@@ -610,10 +662,10 @@ void MainCharacter::UpdateControls()
                     }
 
                     if(Enviroment->GetEnemigos()[x]->getID()== "xultur" && XulturMessage)
-                        {
-                            Mix_PlayChannel(-1,contactXultur,0);
-                            XulturMessage=false;
-                        }
+                    {
+                        Mix_PlayChannel(-1,contactXultur,0);
+                        XulturMessage=false;
+                    }
 
                     if((Enviroment->GetEnemigos()[x]->GetVidaEnemy() - GetAtaque()) < GetAtaque())
                     {
@@ -701,6 +753,7 @@ void MainCharacter::UpdateStats()
 void MainCharacter::Update()
 {
 //    UpdateHealthBar();
+    showTTF(nivel);
     UpdateAnimation();
     UpdateControls();
 

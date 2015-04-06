@@ -9,6 +9,7 @@
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_mixer.h"
+#include "SDL2/SDL_ttf.h"
 #include <math.h>
 
 
@@ -43,6 +44,10 @@ class MainCharacter
 
     protected:
     private:
+        void initTTF();
+        void showTTF(int nivel);
+        TTF_Font* Sans;
+        SDL_Color White;
         Mix_Chunk *hit,*killEnemy,*killXultur,*contactXultur;
         Mix_Music *loose,*win;
         bool XulturMessage;

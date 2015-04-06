@@ -85,7 +85,7 @@
 1428050255 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/sdl_setup.cpp
 	"sdl_setup.h"
 
-1428131555 /home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.h
+1428296678 /home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.h
 	"sdl_setup.h"
 	"csprite.h"
 	"cenviroment.h"
@@ -93,9 +93,10 @@
 	"SDL2/SDL.h"
 	"SDL2/SDL_image.h"
 	"SDL2/SDL_mixer.h"
+	"SDL2/SDL_ttf.h"
 	<math.h>
 
-1428138468 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.cpp
+1428297426 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/maincharacter.cpp
 	"maincharacter.h"
 
 1427727494 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/prueba.cpp
@@ -274,7 +275,7 @@
 1428133136 /home/arubi/Documentos/Proyecto/Proyecto_Final/arquero_enemigo.h
 	"enemigos.h"
 
-1428137948 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/kamikaze_boss_enemigo.cpp
+1428290704 source:/home/arubi/Documentos/Proyecto/Proyecto_Final/kamikaze_boss_enemigo.cpp
 	"kamikaze_boss_enemigo.h"
 
 1428133136 /home/arubi/Documentos/Proyecto/Proyecto_Final/kamikaze_boss_enemigo.h
